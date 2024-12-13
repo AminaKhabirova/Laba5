@@ -8,31 +8,32 @@
 #include <iostream>
 
 class binary_int {
-public:
+private:
     int number;
+    static int add(int a, int b);
+public:
     binary_int();
     binary_int(int x);
+    int get_number () const;
     binary_int operator- () const;
-    binary_int operator+ (binary_int x) const;
-    binary_int operator- (binary_int x) const;
+    binary_int &operator++ () &;
+    binary_int operator++ (int);
+    binary_int &operator-- () &;
+    binary_int operator-- (int);
     binary_int &operator+= (binary_int x);
+    binary_int operator+ (binary_int x) const;
     binary_int &operator-= (binary_int x);
-    binary_int &operator++ ();
-    binary_int &operator-- ();
-    bool operator< (binary_int x) const;
+    binary_int operator- (binary_int x) const;
     binary_int &operator*= (binary_int x);
     binary_int operator* (binary_int x) const;
-    binary_int operator<< (binary_int x) const;
-    binary_int operator>> (binary_int x) const;
     binary_int &operator<<= (binary_int x);
     binary_int &operator>>= (binary_int x);
-    binary_int operator& (binary_int) const;
-
-    std::pair<binary_int, binary_int> split_bits() const;
+    binary_int operator<< (binary_int x) const;
+    binary_int operator>> (binary_int x) const;
+    binary_int operator& (binary_int x) const;
+    std::pair<binary_int, binary_int> in_half() const;
 };
 
-std::ostream &operator<< (std::ostream &stream, binary_int binaryInt);
-
-int adder(int a, int b);
+std::ostream &operator<< (std::ostream &stream, binary_int x);
 
 #endif //TASK1_H
